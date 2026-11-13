@@ -33,7 +33,12 @@ def create_app(db_path=None):
 
     @asynccontextmanager
     async def lifespan(_app):
-        database.initialize_database(target_db)
+        migration_db = db_path or (
+            config.DATABASE_URL_UNPOOLED
+            if database.is_postgres(target_db) and config.DATABASE_URL_UNPOOLED
+            else target_db
+        )
+        database.initialize_database(migration_db)
         if not QuoteService.smtp_settings():
             config.logger.warning("Email notifications are not configured; quote requests will only be saved to the database.")
         worker = None if config.IS_VERCEL else asyncio.create_task(quote_service.notification_worker())

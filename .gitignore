@@ -9,3 +9,5 @@ __pycache__/
 *.db-wal
 *.db-shm
 *-backup-*.db
+.neon
+node_modules/

@@ -33,6 +33,7 @@ _load_project_env()
 
 DB_PATH = Path(os.environ.get("FEAST_DB_PATH", BASE_DIR / "data" / "quotes.db")).resolve()
 DATABASE_URL = os.environ.get("DATABASE_URL", os.environ.get("FEAST_DATABASE_URL", "")).strip()
+DATABASE_URL_UNPOOLED = os.environ.get("DATABASE_URL_UNPOOLED", "").strip()
 HOST = os.environ.get("FEAST_HOST", "127.0.0.1")
 PORT = int(os.environ.get("PORT", os.environ.get("FEAST_PORT", "8000")))
 CORS_ORIGINS = [origin.strip().rstrip("/") for origin in os.environ.get("FEAST_CORS_ORIGINS", "").split(",") if origin.strip()]

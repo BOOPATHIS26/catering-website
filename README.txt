@@ -49,13 +49,15 @@ PostgreSQL data, use the database provider's backup and retention tools.
 
 Vercel's function filesystem is temporary, so production enquiries must use
 PostgreSQL. This project deploys the frontend and FastAPI API as separate
-Vercel projects and connects the API to a Neon PostgreSQL database.
+Vercel projects and connects the API to a PostgreSQL database provider.
 
   1. Push this project to a GitHub repository. Do not commit .env.
-  2. Create a PostgreSQL database with Neon and copy its pooled connection URL.
+  2. Create a PostgreSQL database with your chosen provider and copy its
+     connection URL.
   3. Import this repository in Vercel for the API project. Set Root Directory
-     to backend and add DATABASE_URL, CRON_SECRET, plus the Gmail SMTP
-     variables if email alerts are wanted. Deploy and copy the API project's URL.
+     to backend and add DATABASE_URL (pooled), DATABASE_URL_UNPOOLED (direct
+     migrations), CRON_SECRET, plus the Gmail SMTP variables if email alerts
+     are wanted. Deploy and copy the API project's URL.
   4. Import the repository again in Vercel for the website. Set Root Directory
      to frontend and set VITE_API_BASE_URL to the API project's URL. Deploy.
   5. In the API project's Vercel settings, set FEAST_CORS_ORIGINS to the exact

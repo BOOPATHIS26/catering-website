@@ -21,5 +21,7 @@ py server.py
 ```
 
 Local runs use SQLite unless `DATABASE_URL` is set. Production deployments
-should set `DATABASE_URL` to a PostgreSQL connection string.
+should set `DATABASE_URL` to the pooled PostgreSQL connection string. Set
+`DATABASE_URL_UNPOOLED` to the direct connection string for schema migrations;
+the app uses the pooled URL for regular enquiry operations.
 
