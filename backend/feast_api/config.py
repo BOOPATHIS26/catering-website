@@ -36,7 +36,11 @@ DATABASE_URL = os.environ.get("DATABASE_URL", os.environ.get("FEAST_DATABASE_URL
 DATABASE_URL_UNPOOLED = os.environ.get("DATABASE_URL_UNPOOLED", "").strip()
 HOST = os.environ.get("FEAST_HOST", "127.0.0.1")
 PORT = int(os.environ.get("PORT", os.environ.get("FEAST_PORT", "8000")))
-CORS_ORIGINS = [origin.strip().rstrip("/") for origin in os.environ.get("FEAST_CORS_ORIGINS", "").split(",") if origin.strip()]
+CORS_ORIGINS = [
+    origin.strip().rstrip("/")
+    for origin in os.environ.get("FEAST_CORS_ORIGINS", "").split(",")
+    if origin.strip()
+]
 IS_VERCEL = os.environ.get("VERCEL") == "1"
 CRON_SECRET = os.environ.get("CRON_SECRET", "")
 MAX_BODY_SIZE = 16_384
