@@ -21,8 +21,8 @@ export default function Navbar({ isMenusPage }) {
         </button>
         <div className={`collapse navbar-collapse${menuOpen ? ' show' : ''}`} id="amuthamNav">
           <ul className="navbar-nav ms-auto align-items-lg-center mb-2 mb-lg-0">
-            {['services', 'sample-menus', 'dishes', 'gallery'].map((id) => (
-              <li className="nav-item" key={id}><a className="nav-link" href={homeLink(id)} onClick={() => setMenuOpen(false)}>{id === 'sample-menus' ? 'Menus' : id[0].toUpperCase() + id.slice(1)}</a></li>
+            {['services', 'dishes', 'gallery'].map((id) => (
+              <li className="nav-item" key={id}><a className="nav-link" href={homeLink(id)} onClick={() => setMenuOpen(false)}>{id[0].toUpperCase() + id.slice(1)}</a></li>
             ))}
             <li className="nav-item"><a className={`nav-link${isMenusPage ? ' active' : ''}`} href="/menus">Full menus</a></li>
           </ul>

@@ -6,7 +6,6 @@ const sectionRoutes = {
   '/main': 'main',
   '/hero': 'hero',
   '/services': 'services',
-  '/sample-menus': 'sample-menus',
   '/dishes': 'dishes',
   '/how-it-works': 'how',
   '/quote': 'quote',
@@ -20,7 +19,7 @@ const sectionRoutes = {
 
 export default function App() {
   const path = window.location.pathname.replace(/\/+$/, '') || '/'
-  const isMenusPage = path === '/menus' || path === '/packages' || path === '/menu-styles'
+  const isMenusPage = path === '/menus' || path === '/packages' || path === '/menu-styles' || path === '/sample-menus'
   const sectionId = sectionRoutes[path]
 
   useEffect(() => {
